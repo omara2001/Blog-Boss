@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Blog Agent Installer</title>
+    <link rel="stylesheet" href="download-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-container">
+      <canvas id="tsparticlesfullpage"></canvas>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="logo">
+              <i class="fa-solid fa-robot"></i>
+              <span>BlogBoss</span>
+            </a>
+            <h1>Welcome to Your AI Blog Agent!</h1>
+            <p>Let's start growing your business with effortless, daily blog posts.</p>
+        </div>
+
+        <div class="steps">
+            <div class="step" id="step1">
+                <div class="step-number">1</div>
+                <h3>Install Plugin</h3>
+                <p>Download and install WordPress plugin</p>
+            </div>
+            <div class="step" id="step2">
+                <div class="step-number">2</div>
+                <h3>Connect Site</h3>
+                <p>Link your WordPress website</p>
+            </div>
+            <div class="step" id="step3">
+                <div class="step-number">3</div>
+                <h3>Preferences</h3>
+                <p>Set your content preferences</p>
+            </div>
+            <div class="step" id="step4">
+                <div class="step-number">4</div>
+                <h3>Start Trial</h3>
+                <p>Begin your free trial</p>
+            </div>
+        </div>
+
+        <div class="card" id="stepContent">
+            <!-- Step content will be dynamically inserted here -->
+        </div>
+
+        <div class="testimonials">
+            <h3>What Our Customers Say</h3>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"This AI blog writer has completely transformed our content strategy. We're publishing quality articles daily with minimal effort."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/Assets/Ben Maruthappu.jpeg" alt="Customer" class="author-image">
+                        <div class="author-info">
+                            <h4>Ben Maruthappu</h4>
+                            <p>CEO of Cera, Europe's largest and fastest-growing digital-first home healthcare company</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The SEO optimization is incredible. Our organic traffic has increased by 215% since we started using this tool."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/Assets/Sean Ellis" alt="Customer" class="author-image">
+                        <div class="author-info">
+                            <h4>Sean Ellis</h4>
+                            <p>CEO, GrowthHackers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Setup was incredibly easy and the content quality is consistently excellent. Worth every penny!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/Assets/Adam Riccoboni" alt="Customer" class="author-image">
+                        <div class="author-info">
+                            <h4>Adam Riccoboni</h4>
+                            <p> Founder and CEO of Critical Future one of the world's leading AI companies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span><i class="fa-solid fa-shield-check"></i> Secure & Trusted</span>
+            <span><i class="fa-solid fa-headset"></i> 24/7 Support</span>
+            <span><i class="fa-solid fa-calendar-xmark"></i> Cancel Anytime</span>
+        </div>
+    </div>
+
+    <a id="downloadLink" style="display: none;"></a>
+    <script src="particles.js"></script>
+    <script src="download-script.js"></script>
+</body>
+</html>

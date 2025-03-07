@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Auto Blog Writer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <main class="main-container">
+    <!-- Ambient background with moving particles -->
+    <div class="particles-container">
+      <canvas id="tsparticlesfullpage"></canvas>
+    </div>
+
+    <div class="content-container">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <a href="/" class="logo">
+          <i class="fa-solid fa-robot"></i>
+          <span>BlogBoss</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How it Works</a>
+          <a href="#examples" class="nav-link">Examples</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="btn-ghost" aria-label="Sign In">Sign In</button>
+          <a href="https://criticalfutureglobal.com/contact-us/" target="_blank" rel="noopener"class="btn-primary" aria-label="contact-us">contact-us</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <!-- Floating papers background -->
+        <div class="floating-papers-container"></div>
+
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Transform Your Blog with
+            <span class="gradient-text">AI Power</span>
+          </h1>
+
+          <p class="hero-description">
+            Let our AI write engaging blog posts for your WordPress site automatically. Save time and grow your audience with high-quality content.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="download.html" class="btn-primary btn-large" aria-label="Get Started">
+              <i class="fa-solid fa-file-lines"></i>
+              Get Started
+            </a>
+            <a href="#examples" class="btn-outline btn-large" aria-label="View Examples">
+              <i class="fa-solid fa-sparkles"></i>
+              See Examples
+            </a>
+          </div>
+        </div>
+
+        <!-- Animated robot -->
+        <div class="robot-animation-container">
+          <div class="robot-animation">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <section id="features" class="features-section">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fa-solid fa-calendar"></i>
+            <h3>Automated Scheduling</h3>
+            <p>Set it and forget it. Schedule daily, weekly, or monthly posts.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <h3>SEO Optimized</h3>
+            <p>AI-generated content follows SEO best practices for better rankings.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h3>Custom Topics</h3>
+            <p>Generate content based on your industry, keywords, and preferences.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-image"></i>
+            <h3>Image Integration</h3>
+            <p>Automatically adds relevant images to your blog posts.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-language"></i>
+            <h3>Multi-Language Support</h3>
+            <p>Create content in multiple languages to reach global audiences.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Analytics Dashboard</h3>
+            <p>Track performance metrics and engagement for all your AI-generated content.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-tags"></i>
+            <h3>Category Management</h3>
+            <p>Organize content by categories to maintain a structured blog.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-share-nodes"></i>
+            <h3>Social Media Integration</h3>
+            <p>Automatically share new posts across your social media platforms.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section id="how-it-works" class="how-it-works-section">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>API Configuration</h3>
+              <p>Add your WordPress Site URL and Admin Username</p>
+              <div class="step-image">
+                <i class="fa-solid fa-link"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Authentication</h3>
+              <p>Generate and add your Application Password for secure access</p>
+              <div class="step-image">
+                <i class="fa-solid fa-key"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Content Settings</h3>
+              <p>Choose Post Category where the AI-generated content will appear</p>
+              <div class="step-image">
+                <i class="fa-solid fa-folder-tree"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>AI Integration</h3>
+              <p>Add our AI Agent URL to start fetching high-quality blog content</p>
+              <div class="step-image">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Topic Selection</h3>
+              <p>Write your AI Prompt for the topics you want to cover</p>
+              <div class="step-image">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>Scheduling</h3>
+              <p>Set your Posting Time and Frequency (daily or weekly)</p>
+              <div class="step-image">
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">7</div>
+            <div class="step-content">
+              <h3>Automation</h3>
+              <p>Enable automatic posting and save your changes</p>
+              <div class="step-image">
+                <i class="fa-solid fa-toggle-on"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">8</div>
+            <div class="step-content">
+              <h3>Monitor Status</h3>
+              <p>Check Automation Status to see when your next post is scheduled</p>
+              <div class="step-image">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-primary">
+            <i class="fa-solid fa-download"></i>
+            Get Started Now
+          </button>
+          <button class="btn-outline">
+            <i class="fa-solid fa-circle-play"></i>
+            Watch Tutorial
+          </button>
+        </div>
+      </section>
+
+      <!-- Examples Section -->
+      <section id="examples" class="examples-section">
+        <h2 class="section-title">See It In Action</h2>
+        
+        <div class="examples-container">
+          <div class="example-tabs">
+            <button class="tab-button active" data-tab="tech">Technology</button>
+            <button class="tab-button" data-tab="health">Health & Wellness</button>
+            <button class="tab-button" data-tab="finance">Finance</button>
+            <button class="tab-button" data-tab="travel">Travel</button>
+          </div>
+          
+          <div class="example-content">
+            <div class="tab-content active" id="tech-content">
+              <div class="blog-preview">
+                <div class="blog-preview-image">
+                  <img src="/Assets/Tech Blog Example.webp" alt="Tech Blog Example">
+                </div>
+                <div class="blog-preview-content">
+                  <h3>The Future of AI in Everyday Technology</h3>
+                  <p class="blog-meta">
+                    <span><i class="fa-solid fa-calendar"></i> Posted yesterday</span>
+                    <span><i class="fa-solid fa-user"></i> AI Writer</span>
+                  </p>
+                  <p class="blog-excerpt">
+                    Artificial intelligence is rapidly transforming how we interact with technology on a daily basis. From smart home devices to personalized recommendations, AI is becoming an integral part of our digital experience...
+                  </p>
+                  <div class="blog-stats">
+                    <span><i class="fa-solid fa-eye"></i> 1,245 views</span>
+                    <span><i class="fa-solid fa-comment"></i> 32 comments</span>
+                    <span><i class="fa-solid fa-share"></i> 78 shares</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="health-content">
+              <div class="blog-preview">
+                <div class="blog-preview-image">
+                  <img src="Assets/Health Blog Example.webp" alt="Health Blog Example">
+                </div>
+                <div class="blog-preview-content">
+                  <h3>5 Science-Backed Ways to Improve Your Sleep Quality</h3>
+                  <p class="blog-meta">
+                    <span><i class="fa-solid fa-calendar"></i> Posted 3 days ago</span>
+                    <span><i class="fa-solid fa-user"></i> AI Writer</span>
+                  </p>
+                  <p class="blog-excerpt">
+                    Quality sleep is essential for overall health and wellbeing. Research shows that consistent, restful sleep can improve cognitive function, boost immunity, and reduce the risk of chronic diseases...
+                  </p>
+                  <div class="blog-stats">
+                    <span><i class="fa-solid fa-eye"></i> 2,187 views</span>
+                    <span><i class="fa-solid fa-comment"></i> 45 comments</span>
+                    <span><i class="fa-solid fa-share"></i> 124 shares</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="finance-content">
+              <div class="blog-preview">
+                <div class="blog-preview-image">
+                  <img src="Assets/Finance Blog Example.webp" alt="Finance Blog Example">
+                </div>
+                <div class="blog-preview-content">
+                  <h3>Understanding Market Volatility: A Guide for New Investors</h3>
+                  <p class="blog-meta">
+                    <span><i class="fa-solid fa-calendar"></i> Posted last week</span>
+                    <span><i class="fa-solid fa-user"></i> AI Writer</span>
+                  </p>
+                  <p class="blog-excerpt">
+                    Market volatility can be intimidating for new investors, but understanding its causes and patterns can help you make more informed investment decisions. This guide explores the fundamentals of market fluctuations...
+                  </p>
+                  <div class="blog-stats">
+                    <span><i class="fa-solid fa-eye"></i> 1,876 views</span>
+                    <span><i class="fa-solid fa-comment"></i> 29 comments</span>
+                    <span><i class="fa-solid fa-share"></i> 93 shares</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-content" id="travel-content">
+              <div class="blog-preview">
+                <div class="blog-preview-image">
+                  <img src="Assets/Travel Blog Example.webp" alt="Travel Blog Example">
+                </div>
+                <div class="blog-preview-content">
+                  <h3>Hidden Gems: 10 Underrated European Destinations</h3>
+                  <p class="blog-meta">
+                    <span><i class="fa-solid fa-calendar"></i> Posted 2 weeks ago</span>
+                    <span><i class="fa-solid fa-user"></i> AI Writer</span>
+                  </p>
+                  <p class="blog-excerpt">
+                    While Paris, Rome, and Barcelona attract millions of tourists each year, Europe is home to countless charming destinations that remain relatively undiscovered. These hidden gems offer authentic cultural experiences...
+                  </p>
+                  <div class="blog-stats">
+                    <span><i class="fa-solid fa-eye"></i> 3,421 views</span>
+                    <span><i class="fa-solid fa-comment"></i> 67 comments</span>
+                    <span><i class="fa-solid fa-share"></i> 215 shares</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="example-animation">
+            <div class="typing-animation">
+              <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="typing-text">
+                <p>Generating blog content...</p>
+                <p>Analyzing keywords...</p>
+                <p>Optimizing for SEO...</p>
+                <p>Adding relevant images...</p>
+                <p>Finalizing post...</p>
+                <p class="success">Blog post published successfully!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="examples-cta">
+          <p>Our AI has written over 10,000+ blog posts for businesses like yours</p>
+          <a href="https://criticalfutureglobal.com/category/blog/" target="_blank" rel="noopener" class="btn-primary">
+            <i class="fa-solid fa-external-link"></i>
+            View Live Examples
+        </a>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="pricing" class="pricing-section">
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="pricing-subtitle">Choose the plan that works for your business</p>
+        
+        <div class="pricing-toggle">
+          <span>Monthly</span>
+          <label class="switch">
+            <input type="checkbox" id="billing-toggle" title="Enable Billing">
+            <span class="slider round"></span>
+          </label>
+          <span>Annual <span class="save-badge">Save 20%</span></span>
+        </div>
+        
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <h3>Starter</h3>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="amount monthly">29</span>
+                <span class="amount annual">23</span>
+                <span class="period">/month</span>
+              </div>
+              <p>Perfect for small blogs and personal websites</p>
+            </div>
+            <div class="pricing-card-features">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> 10 AI-generated posts per month</li>
+                <li><i class="fa-solid fa-check"></i> Basic SEO optimization</li>
+                <li><i class="fa-solid fa-check"></i> Weekly posting schedule</li>
+                <li><i class="fa-solid fa-check"></i> Email support</li>
+                <li class="disabled"><i class="fa-solid fa-xmark"></i> Custom categories</li>
+                <li class="disabled"><i class="fa-solid fa-xmark"></i> Advanced analytics</li>
+                <li class="disabled"><i class="fa-solid fa-xmark"></i> Social media integration</li>
+              </ul>
+            </div>
+            <div class="pricing-card-footer">
+              <a href="download.html" class="btn-outline btn-full">Get Started</a>
+            </div>
+          </div>
+          
+          <div class="pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <div class="pricing-card-header">
+              <h3>Professional</h3>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="amount monthly">79</span>
+                <span class="amount annual">63</span>
+                <span class="period">/month</span>
+              </div>
+              <p>Ideal for growing businesses and content creators</p>
+            </div>
+            <div class="pricing-card-features">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> 30 AI-generated posts per month</li>
+                <li><i class="fa-solid fa-check"></i> Advanced SEO optimization</li>
+                <li><i class="fa-solid fa-check"></i> Daily posting schedule</li>
+                <li><i class="fa-solid fa-check"></i> Priority email support</li>
+                <li><i class="fa-solid fa-check"></i> Custom categories</li>
+                <li><i class="fa-solid fa-check"></i> Basic analytics dashboard</li>
+                <li class="disabled"><i class="fa-solid fa-xmark"></i> Social media integration</li>
+              </ul>
+            </div>
+            <div class="pricing-card-footer">
+              <a href="download.html" class="btn-primary btn-full">Get Started</a>
+            </div>
+          </div>
+          
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <h3>Enterprise</h3>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="amount monthly">199</span>
+                <span class="amount annual">159</span>
+                <span class="period">/month</span>
+              </div>
+              <p>Complete solution for agencies and large businesses</p>
+            </div>
+            <div class="pricing-card-features">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Unlimited AI-generated posts</li>
+                <li><i class="fa-solid fa-check"></i> Premium SEO optimization</li>
+                <li><i class="fa-solid fa-check"></i> Custom posting schedule</li>
+                <li><i class="fa-solid fa-check"></i> 24/7 dedicated support</li>
+                <li><i class="fa-solid fa-check"></i> Multiple categories</li>
+                <li><i class="fa-solid fa-check"></i> Advanced analytics & reporting</li>
+                <li><i class="fa-solid fa-check"></i> Social media integration</li>
+              </ul>
+            </div>
+            <div class="pricing-card-footer">
+              <a href="download.html" class="btn-outline btn-full">Get Started</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pricing-guarantee">
+          <i class="fa-solid fa-shield-check"></i>
+          <p>30-day money-back guarantee. No questions asked.</p>
+        </div>
+        
+        <div class="pricing-faq">
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h4>Can I cancel my subscription anytime?</h4>
+              <p>Yes, you can cancel your subscription at any time with no cancellation fees.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Do I own the content created by the AI?</h4>
+              <p>All content generated by our AI is 100% yours to use as you wish.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Is there a free trial available?</h4>
+              <p>Yes, we offer a 7-day free trial so you can test our service before committing.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Can I upgrade or downgrade my plan?</h4>
+              <p>You can change your plan at any time, and the billing will be prorated accordingly.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <span>✓ Secure & Trusted</span>
+        <span>24/7 Support</span>
+        <span>Cancel Anytime</span>
+      </div>
+    </footer>
+  </main>
+
+  <script src="particles.js"></script>
+  <script src="floating-papers.js"></script>
+  <script src="main.js"></script>
+  <script src="examples.js"></script>
+  <script src="pricing.js"></script>
+</body>
+</html>

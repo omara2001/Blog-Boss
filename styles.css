@@ -958,10 +958,6 @@ input:checked + .slider:before {
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
 /* Responsive styles */
 @media (max-width: 768px) {
   .nav-links,

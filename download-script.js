@@ -24,13 +24,17 @@ const stepContent = {
   2: `
         <h2>Connect Your Site</h2>
         <p>Configure your AI Blog Agent settings</p>
+        <p class="input-help">
+        <i class="fa-solid fa-circle-info"></i> 
+        Generate this in WordPress under Users > Profile > Application Passwords
+        </p>
         <div>
             <h3>Quick Setup Guide:</h3>
             <ol>
-                <li>Open your Flowise dashboard</li>
-                <li>Locate your Chat Flow ID for the agent</li>
-                <li>Select the content category for your blog posts</li>
-                <li>Copy and paste your Chat Flow ID in the field below</li>
+                <li>Enter your WordPress site URL</li>
+                <li>Add your admin username for authentication</li>
+                <li>Generate and add an application password for secure access</li>
+                <li>Test the connection to ensure everything works</li>
             </ol>
         </div>
         <div class="button-container">
@@ -56,9 +60,13 @@ const stepContent = {
         </div>
     `,
   4: `
-        <h2>Start Your Free Trial</h2>
-        <p>Begin generating AI-powered blog content</p>
-        <button id="startTrialButton">Start Free Trial Now</button>
+        <h2>
+        <i class="fa-solid fa-gift"></i>
+        Your Free Trial Has Started!
+        </h2>
+        <div class="trial-banner">
+        <p>Begin generating AI-powered blog content</p>  
+        <button id="startTrialButton">Generate your Chat flow ID</button>
         <div id="trialCredentials" style="display: none;">
             <div class="input-group">
                 <label for="chatFlowId">Chat Flow ID</label>
@@ -74,6 +82,10 @@ const stepContent = {
                 <label for="trialEndDate">Trial End Date</label>
                 <input id="trialEndDate" readonly>
             </div>
+            <p>
+                  <i class="fa-solid fa-clock"></i> 
+                  Current time: <span id="currentTime">Loading...</span>
+                </p>
             <div>
                 <h3>Next Steps:</h3>
                 <ol>
@@ -84,9 +96,23 @@ const stepContent = {
                     <li>Start generating AI-powered blog posts!</li>
                 </ol>
             </div>
+           <div class="trial-info">
+            <h3>Your Trial Details</h3>
+            <p>Your 7-day free trial has started. You can generate up to 10 blog posts during this period.</p>
+           <div class="plan-after-trial">
+                <h4>After Your Trial</h4>
+                <p>When your trial ends, you'll be automatically subscribed to the <span id="selectedPlanName">Professional</span> plan at <span id="selectedPlanPrice">$32/month</span>.</p>
+                <p>You can cancel anytime before your trial ends to avoid being charged.</p>
+            </div>
+        </div>
         </div>
         <div class="button-container">
-            <button id="backButton">Back</button>
+            <button id="backButton">
+              <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+            <a href="../index.html" class="btn-outline">
+              <i class="fa-solid fa-home"></i> Return to Homepage
+            </a>
         </div>
     `,
 }
@@ -95,6 +121,7 @@ function updateStepContent() {
   document.getElementById("stepContent").innerHTML = stepContent[currentStep]
   updateStepIndicators()
   attachEventListeners()
+  updateDynamicContent()
 }
 
 function updateStepIndicators() {
@@ -136,6 +163,13 @@ function attachEventListeners() {
     startTrialButton.addEventListener("click", handleStartTrial)
   }
 
+  const helpButton = document.getElementById("helpButton")
+  if (helpButton) {
+    helpButton.addEventListener("click", () => {
+      alert("Our support team is available 24/7. Please email info@criticalfuture.co.uk or call us at 1-800-BLOG-AI")
+    })
+  }
+
   const copyButtons = document.querySelectorAll(".copy-button")
   copyButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -144,6 +178,75 @@ function attachEventListeners() {
       copyToClipboard(targetElement.value)
     })
   })
+}
+
+function updateDynamicContent() {
+  // Update current time
+  const currentTimeElement = document.getElementById("currentTime")
+  if (currentTimeElement) {
+    updateCurrentTime()
+    setInterval(updateCurrentTime, 1000)
+  }
+
+  // Update trial end date
+  const trialEndDateElement = document.getElementById("trialEndDate")
+  if (trialEndDateElement) {
+    // Get trial end date from localStorage or calculate it
+    let trialEndDate = localStorage.getItem("trialEndDate")
+    if (!trialEndDate) {
+      const endDate = new Date()
+      endDate.setDate(endDate.getDate() + 7) // 7-day trial
+      trialEndDate = endDate.toISOString()
+      localStorage.setItem("trialEndDate", trialEndDate)
+    }
+
+    trialEndDateElement.textContent = new Date(trialEndDate).toLocaleDateString()
+  }
+
+  // Update selected plan details
+  const selectedPlanNameElement = document.getElementById("selectedPlanName")
+  const selectedPlanPriceElement = document.getElementById("selectedPlanPrice")
+
+  if (selectedPlanNameElement && selectedPlanPriceElement) {
+    const planType = localStorage.getItem("selectedPlanType") || "professional"
+    const billingCycle = localStorage.getItem("billingCycle") || "monthly"
+
+    const planDetails = {
+      starter: {
+        name: "Starter",
+        monthlyPrice: 16,
+        annualPrice: 12,
+      },
+      professional: {
+        name: "Professional",
+        monthlyPrice: 32,
+        annualPrice: 30,
+      },
+      enterprise: {
+        name: "Enterprise",
+        monthlyPrice: 48,
+        annualPrice: 40,
+      },
+    }
+
+    const plan = planDetails[planType] || planDetails.professional
+    const isAnnual = billingCycle === "annual"
+    const price = isAnnual ? plan.annualPrice : plan.monthlyPrice
+
+    selectedPlanNameElement.textContent = plan.name
+    selectedPlanPriceElement.textContent = `$${price}/${isAnnual ? "year" : "month"}`
+  }
+
+  // Initialize testimonial slider
+  initTestimonialSlider()
+}
+
+function updateCurrentTime() {
+  const currentTimeElement = document.getElementById("currentTime")
+  if (currentTimeElement) {
+    const now = new Date()
+    currentTimeElement.textContent = now.toLocaleTimeString()
+  }
 }
 
 function handleDownload() {
@@ -163,6 +266,11 @@ function handleDownload() {
 
   // Remove the anchor from the DOM
   document.body.removeChild(downloadLink)
+
+  // Show success message
+  const downloadButton = document.getElementById("downloadButton")
+  downloadButton.innerHTML = '<i class="fa-solid fa-check"></i> Downloaded'
+  downloadButton.classList.add("success")
 
   // Enable the "Continue" button
   isInstalled = true
@@ -196,5 +304,56 @@ function copyToClipboard(text) {
     })
 }
 
+function initTestimonialSlider() {
+  const testimonials = document.querySelectorAll(".testimonial")
+  const dots = document.querySelectorAll(".dot")
+  let currentTestimonial = 0
+
+  // Set first testimonial as active
+  if (testimonials.length > 0) {
+    testimonials[0].classList.add("active")
+  }
+
+  // Add click event to dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showTestimonial(index)
+    })
+  })
+
+  // Auto rotate testimonials
+  setInterval(() => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length
+    showTestimonial(currentTestimonial)
+  }, 5000)
+
+  function showTestimonial(index) {
+    // Hide all testimonials
+    testimonials.forEach((testimonial) => {
+      testimonial.classList.remove("active")
+    })
+
+    // Remove active class from all dots
+    dots.forEach((dot) => {
+      dot.classList.remove("active")
+    })
+
+    // Show selected testimonial
+    testimonials[index].classList.add("active")
+    dots[index].classList.add("active")
+    currentTestimonial = index
+  }
+}
+
 // Initialize the application
-updateStepContent()
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if user is coming from checkout page with active trial
+  const isTrialActive = localStorage.getItem("isTrialActive") === "true"
+
+  if (isTrialActive) {
+    // Skip to the last step if trial is active
+    currentStep = 4
+  }
+
+  updateStepContent()
+})

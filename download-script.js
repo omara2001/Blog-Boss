@@ -6,10 +6,8 @@ const stepContent = {
   1: `
         <h2>Install the WordPress Plugin</h2>
         <p>Download and install the AI Blog Agent plugin on your WordPress site</p>
-        <button id="downloadButton" class="pulse-button">
-          <i class="fa-solid fa-download"></i> Download Plugin
-        </button>
-        <div class="installation-guide">
+        <button id="downloadButton">Download Plugin</button>
+        <div>
             <h3>Installation Instructions:</h3>
             <ol>
                 <li>Go to your WordPress Admin Dashboard</li>
@@ -19,167 +17,76 @@ const stepContent = {
             </ol>
         </div>
         <div class="button-container">
-            <button id="helpButton">
-              <i class="fa-solid fa-circle-question"></i> Need help?
-            </button>
-            <button id="continueButton" disabled>
-              <i class="fa-solid fa-arrow-right"></i> Continue
-            </button>
+            <button id="helpButton">Need help?</button>
+            <button id="continueButton" disabled>Continue</button>
         </div>
     `,
   2: `
         <h2>Connect Your Site</h2>
         <p>Configure your AI Blog Agent settings</p>
-        <div class="setup-form">
-            <div class="input-group">
-                <label for="siteUrl">WordPress Site URL</label>
-                <input type="url" id="siteUrl" placeholder="https://yoursite.com">
-            </div>
-            <div class="input-group">
-                <label for="adminUsername">Admin Username</label>
-                <input type="text" id="adminUsername" placeholder="Your WordPress username">
-            </div>
-            <div class="input-group">
-                <label for="appPassword">Application Password</label>
-                <input type="password" id="appPassword" placeholder="Your application password">
-                <p class="input-help">
-                  <i class="fa-solid fa-circle-info"></i> 
-                  Generate this in WordPress under Users > Profile > Application Passwords
-                </p>
-            </div>
-        </div>
-        <div class="setup-guide">
+        <div>
             <h3>Quick Setup Guide:</h3>
             <ol>
-                <li>Enter your WordPress site URL</li>
-                <li>Add your admin username for authentication</li>
-                <li>Generate and add an application password for secure access</li>
-                <li>Test the connection to ensure everything works</li>
+                <li>Open your Flowise dashboard</li>
+                <li>Locate your Chat Flow ID for the agent</li>
+                <li>Select the content category for your blog posts</li>
+                <li>Copy and paste your Chat Flow ID in the field below</li>
             </ol>
         </div>
         <div class="button-container">
-            <button id="backButton">
-              <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
-            <button id="continueButton">
-              <i class="fa-solid fa-arrow-right"></i> Continue
-            </button>
+            <button id="backButton">Back</button>
+            <button id="continueButton">Continue</button>
         </div>
     `,
   3: `
         <h2>Set Your Preferences</h2>
         <p>Customize your content generation settings</p>
-        <div class="setup-form">
-            <div class="input-group">
-                <label for="postCategory">Post Category</label>
-                <select id="postCategory">
-                    <option value="">Select a category</option>
-                    <option value="blog">Blog</option>
-                    <option value="news">News</option>
-                    <option value="technology">Technology</option>
-                    <option value="business">Business</option>
-                    <option value="lifestyle">Lifestyle</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="aiAgentUrl">AI Agent URL</label>
-                <input type="url" id="aiAgentUrl" placeholder="https://your-ai-agent-url.com">
-            </div>
-            <div class="input-group">
-                <label for="aiPrompt">AI Prompt Topic</label>
-                <textarea id="aiPrompt" placeholder="Write about technology trends, focus on AI advancements..."></textarea>
-            </div>
-            <div class="schedule-settings">
-                <h3>Posting Schedule</h3>
-                <div class="input-group">
-                    <label for="postingTime">Posting Time</label>
-                    <input type="time" id="postingTime" value="09:00">
-                </div>
-                <div class="input-group">
-                    <label>Frequency</label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="frequency" value="daily" checked> Daily
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="frequency" value="weekly"> Weekly
-                        </label>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="enableAutomation" checked>
-                        Enable automatic posting
-                    </label>
-                </div>
-            </div>
+        <div>
+            <h3>Content Configuration Steps:</h3>
+            <ol>
+                <li>Define your desired content type and style</li>
+                <li>Set your preferred post length and frequency</li>
+                <li>Configure SEO parameters and keywords</li>
+                <li>Click "Fetch Data" to test your settings</li>
+            </ol>
         </div>
         <div class="button-container">
-            <button id="backButton">
-              <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
-            <button id="continueButton">
-              <i class="fa-solid fa-arrow-right"></i> Continue
-            </button>
+            <button id="backButton">Back</button>
+            <button id="continueButton">Continue</button>
         </div>
     `,
   4: `
         <h2>Start Your Free Trial</h2>
         <p>Begin generating AI-powered blog content</p>
-        <div class="automation-status">
-            <h3>Automation Status</h3>
-            <div class="status-indicator">
-                <span class="status-badge enabled">
-                  <i class="fa-solid fa-circle-check"></i> Status: Enabled
-                </span>
+        <button id="startTrialButton">Start Free Trial Now</button>
+        <div id="trialCredentials" style="display: none;">
+            <div class="input-group">
+                <label for="chatFlowId">Chat Flow ID</label>
+                <input id="chatFlowId" readonly>
+                <button class="copy-button" data-target="chatFlowId">Copy</button>
             </div>
-            <div class="status-details">
-                <p>
-                  <i class="fa-solid fa-calendar-day"></i> 
-                  Next scheduled post: <span id="nextPostTime">Tomorrow, 9:00 AM</span>
-                </p>
-                <p>
-                  <i class="fa-solid fa-clock"></i> 
-                  Current time: <span id="currentTime">Loading...</span>
-                </p>
+            <div class="input-group">
+                <label for="apiKey">API Key</label>
+                <input id="apiKey" readonly>
+                <button class="copy-button" data-target="apiKey">Copy</button>
             </div>
-        </div>
-        <div class="action-buttons">
-            <button id="fetchBlogButton" class="action-button">
-              <i class="fa-solid fa-cloud-download-alt"></i> Fetch Blog
-            </button>
-            <button id="generatePostButton" class="action-button">
-              <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Post Now
-            </button>
-        </div>
-        <div id="generationStatus" class="generation-status" style="display: none;">
-            <div class="loading-spinner"></div>
-            <p>Generating your first blog post...</p>
-        </div>
-        <div id="successMessage" class="success-message" style="display: none;">
-            <i class="fa-solid fa-check-circle"></i>
-            <h3>Success!</h3>
-            <p>Your first blog post has been generated and scheduled.</p>
-            <a href="#" class="btn-primary">View Post</a>
-        </div>
-        <div class="trial-info">
-            <h3>Your Trial Details</h3>
-            <p>Your 14-day free trial has started. You can generate up to 10 blog posts during this period.</p>
-            <div class="trial-progress">
-                <div class="progress-bar">
-                    <div class="progress" style="width: 0%"></div>
-                </div>
-                <p>0/10 posts generated</p>
+            <div class="input-group">
+                <label for="trialEndDate">Trial End Date</label>
+                <input id="trialEndDate" readonly>
             </div>
-            <p class="trial-expiry">Trial expires on: <span id="trialEndDate">Loading...</span></p>
+            <div>
+                <h3>Next Steps:</h3>
+                <ol>
+                    <li>Copy your Chat Flow ID and API Key</li>
+                    <li>Open the AI Blog Agent plugin in your WordPress dashboard</li>
+                    <li>Paste your credentials in the plugin settings</li>
+                    <li>Configure your content preferences</li>
+                    <li>Start generating AI-powered blog posts!</li>
+                </ol>
+            </div>
         </div>
         <div class="button-container">
-            <button id="backButton">
-              <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
-            <a href="index.html" class="btn-outline">
-              <i class="fa-solid fa-home"></i> Return to Homepage
-            </a>
+            <button id="backButton">Back</button>
         </div>
     `,
 }
@@ -188,7 +95,6 @@ function updateStepContent() {
   document.getElementById("stepContent").innerHTML = stepContent[currentStep]
   updateStepIndicators()
   attachEventListeners()
-  updateDynamicContent()
 }
 
 function updateStepIndicators() {
@@ -225,21 +131,9 @@ function attachEventListeners() {
     })
   }
 
-  const fetchBlogButton = document.getElementById("fetchBlogButton")
-  if (fetchBlogButton) {
-    fetchBlogButton.addEventListener("click", handleFetchBlog)
-  }
-
-  const generatePostButton = document.getElementById("generatePostButton")
-  if (generatePostButton) {
-    generatePostButton.addEventListener("click", handleGeneratePost)
-  }
-
-  const helpButton = document.getElementById("helpButton")
-  if (helpButton) {
-    helpButton.addEventListener("click", () => {
-      alert("Our support team is available 24/7. Please email support@blogai.com or call us at 1-800-BLOG-AI.")
-    })
+  const startTrialButton = document.getElementById("startTrialButton")
+  if (startTrialButton) {
+    startTrialButton.addEventListener("click", handleStartTrial)
   }
 
   const copyButtons = document.querySelectorAll(".copy-button")
@@ -250,34 +144,6 @@ function attachEventListeners() {
       copyToClipboard(targetElement.value)
     })
   })
-}
-
-function updateDynamicContent() {
-  // Update current time
-  const currentTimeElement = document.getElementById("currentTime")
-  if (currentTimeElement) {
-    updateCurrentTime()
-    setInterval(updateCurrentTime, 1000)
-  }
-
-  // Update trial end date
-  const trialEndDateElement = document.getElementById("trialEndDate")
-  if (trialEndDateElement) {
-    const endDate = new Date()
-    endDate.setDate(endDate.getDate() + 14)
-    trialEndDateElement.textContent = endDate.toLocaleDateString()
-  }
-
-  // Initialize testimonial slider
-  initTestimonialSlider()
-}
-
-function updateCurrentTime() {
-  const currentTimeElement = document.getElementById("currentTime")
-  if (currentTimeElement) {
-    const now = new Date()
-    currentTimeElement.textContent = now.toLocaleTimeString()
-  }
 }
 
 function handleDownload() {
@@ -298,109 +164,37 @@ function handleDownload() {
   // Remove the anchor from the DOM
   document.body.removeChild(downloadLink)
 
-  // Show success message
-  const downloadButton = document.getElementById("downloadButton")
-  downloadButton.innerHTML = '<i class="fa-solid fa-check"></i> Downloaded'
-  downloadButton.classList.add("success")
-
   // Enable the "Continue" button
   isInstalled = true
   document.getElementById("continueButton").disabled = false
 }
 
-function handleFetchBlog() {
-  const fetchBlogButton = document.getElementById("fetchBlogButton")
-  fetchBlogButton.disabled = true
-  fetchBlogButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Fetching...'
-  
-  // Simulate API call
-  setTimeout(() => {
-    fetchBlogButton.disabled = false
-    fetchBlogButton.innerHTML = '<i class="fa-solid fa-check"></i> Fetched Successfully'
-    fetchBlogButton.classList.add("success")
-    
-    // Update progress bar
-    const progressBar = document.querySelector(".progress")
-    progressBar.style.width = "10%"
-    document.querySelector(".trial-progress p").textContent = "1/10 posts generated"
-  }, 2000)
-}
+function handleStartTrial() {
+  // Simulating API call to start trial
+  trialCredentials = {
+    chatFlowId: "cf_" + Math.random().toString(36).substr(2, 9),
+    apiKey: "ak_" + Math.random().toString(36).substr(2, 9),
+    trialEndDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+  }
 
-function handleGeneratePost() {
-  const generatePostButton = document.getElementById("generatePostButton")
-  generatePostButton.disabled = true
-  
-  // Show generation status
-  document.getElementById("generationStatus").style.display = "flex"
-  
-  // Simulate post generation
-  setTimeout(() => {
-    document.getElementById("generationStatus").style.display = "none"
-    document.getElementById("successMessage").style.display = "block"
-    
-    // Update progress bar
-    const progressBar = document.querySelector(".progress")
-    progressBar.style.width = "20%"
-    document.querySelector(".trial-progress p").textContent = "2/10 posts generated"
-    
-    // Re-enable button
-    generatePostButton.disabled = false
-  }, 3000)
+  document.getElementById("startTrialButton").style.display = "none"
+  document.getElementById("trialCredentials").style.display = "block"
+
+  document.getElementById("chatFlowId").value = trialCredentials.chatFlowId
+  document.getElementById("apiKey").value = trialCredentials.apiKey
+  document.getElementById("trialEndDate").value = trialCredentials.trialEndDate
 }
 
 function copyToClipboard(text) {
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      alert("Copied to clipboard!")
+      console.log("Copied to clipboard")
     })
     .catch((err) => {
       console.error("Failed to copy: ", err)
     })
 }
 
-function initTestimonialSlider() {
-  const testimonials = document.querySelectorAll(".testimonial")
-  const dots = document.querySelectorAll(".dot")
-  let currentTestimonial = 0
-  
-  // Set first testimonial as active
-  if (testimonials.length > 0) {
-    testimonials[0].classList.add("active")
-  }
-  
-  // Add click event to dots
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      showTestimonial(index)
-    })
-  })
-  
-  // Auto rotate testimonials
-  setInterval(() => {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length
-    showTestimonial(currentTestimonial)
-  }, 5000)
-  
-  function showTestimonial(index) {
-    // Hide all testimonials
-    testimonials.forEach(testimonial => {
-      testimonial.classList.remove("active")
-    })
-    
-    // Remove active class from all dots
-    dots.forEach(dot => {
-      dot.classList.remove("active")
-    })
-    
-    // Show selected testimonial
-    testimonials[index].classList.add("active")
-    dots[index].classList.add("active")
-    currentTestimonial = index
-  }
-}
-
 // Initialize the application
-document.addEventListener("DOMContentLoaded", () => {
-  updateStepContent()
-})
+updateStepContent()
